@@ -1,55 +1,12 @@
-<<<<<<< HEAD
-pipeline {
-  agent any
-  stages {
-    stage('build') {
-      steps {
-        echo 'this is the build job'
-        sh 'npm install'
-      }
-    }
-
-    stage('test') {
-      steps {
-        echo 'this is the test job'
-        sh 'npm test'
-      }
-    }
-
-    stage('package') {
-      steps {
-        echo 'this is the package job'
-        sh 'npm run package'
-      }
-    }
-
-    stage('artifact') {
-      steps {
-        archiveArtifacts '**/distribution/*.zip'
-      }
-    }
-
-  }
-  tools {
-    nodejs 'nodejs'
-  }
-  post {
-    always {
-      echo 'this pipeline has completed...'
-    }
-
-  }
-=======
 pipeline{
 
     agent any
 
 // uncomment the following lines by removing /* and */ to enable
-
     tools{
        nodejs 'nodejs' 
     }
-  
+    
 
     stages{
         stage('build-the-app'){
@@ -68,7 +25,6 @@ pipeline{
             steps{
                 echo 'this is the package job'
                 sh 'npm run package'
-                
             }
         }
     }
@@ -80,5 +36,4 @@ pipeline{
         
     }
     
->>>>>>> 6824c75ec5fefa9382e0d145d16f2101fe6f9b74
 }
